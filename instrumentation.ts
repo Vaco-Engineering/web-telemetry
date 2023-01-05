@@ -33,7 +33,7 @@ export default {
     });
 
     const exporter = new OTLPTraceExporter({
-      url: config.url || 'http://localhost:5173/v1/traces'
+      url: import.meta.env.VITE_OTEL_EXPORTER_OTLP_ENDPOINT
     });
 
     provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
